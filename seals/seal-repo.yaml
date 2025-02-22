@@ -11,7 +11,7 @@ metadata:
   creationTimestamp: "2025-02-19T19:04:32Z"
   labels:
     argocd.argoproj.io/secret-type: repository
-  name: repo-3947450314
+  name: repo-3947450313
   namespace: argocd
   resourceVersion: "6252697"
   uid: e6422ded-ce06-424a-ad4a-5ac6a2ba86a5
