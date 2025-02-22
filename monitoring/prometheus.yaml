@@ -110,7 +110,7 @@ data:
           target_label: __metrics_path__
           replacement: /api/v1/nodes/${1}/proxy/metrics
 
-
+      
       - job_name: 'kubernetes-pods'
 
         kubernetes_sd_configs:
@@ -137,7 +137,7 @@ data:
         - source_labels: [__meta_kubernetes_pod_name]
           action: replace
           target_label: kubernetes_pod_name
-
+      
       - job_name: 'kube-state-metrics'
         static_configs:
           - targets: ['kube-state-metrics:8080']
@@ -162,7 +162,7 @@ data:
           regex: (.+)
           target_label: __metrics_path__
           replacement: /api/v1/nodes/${1}/proxy/metrics/cadvisor
- 
+      
       - job_name: 'kubernetes-service-endpoints'
 
         kubernetes_sd_configs:
@@ -229,7 +229,7 @@ spec:
           configMap:
             defaultMode: 420
             name: prometheus-server-conf
-
+  
         - name: prometheus-storage-volume
           emptyDir: {}
 ---
@@ -242,12 +242,12 @@ metadata:
       prometheus.io/scrape: 'true'
       prometheus.io/port:   '9090'
 spec:
-  selector:
+  selector: 
     app: prometheus-server
-  type: NodePort
+  type: NodePort  
   ports:
     - port: 8080
-      targetPort: 9090
+      targetPort: 9090 
       nodePort: 30003
 ---
 apiVersion: networking.k8s.io/v1
@@ -258,7 +258,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: prometheus.k8s-19 .sa
+    - host: prometheus.k8s-25.sa
       http:
         paths:
           - path: /
